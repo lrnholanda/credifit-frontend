@@ -1,35 +1,31 @@
-// Navbar.tsx
+
 import React from 'react';
-import './Navbar.css'; 
 
-interface NavLinkProps {
-  href: string;
-  label: string;
-}
-
-const Navbar: React.FC = () => {
-  const navLinks: NavLinkProps[] = [
-    { href: '#', label: 'Home' },
-    { href: '#', label: 'Sobre' },
-    { href: '#', label: 'Contato' },
-  ];
-
-  return (
-    <header className="navbar">
-      <img src="logo.png" alt="Logo" className="logo" />
-      <nav className="nav">
-        <ul className="nav-list">
-          {navLinks.map((link) => (
-            <li className="nav-item" key={link.href}>
-              <a href={link.href} className="nav-link">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+  const Navbar = () => {
+    return (
+      <nav className="bg-customColor shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <img
+                  className="h-30 w-30 mr-3"
+                  src="src/assets/Brand.svg"
+                  alt="Logo"
+                />
+              </div>
+            </div>
+            <div className="hidden md:block">
+              <div className="ml-4 flex items-center md:ml-6">
+                <button className="bg-white text-customColor px-3 py-2 rounded-md text-sm font-medium">
+                  Sign Up
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
-    </header>
-  );
-};
-
+    );
+  };
+  
 export default Navbar;

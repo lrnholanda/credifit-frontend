@@ -8,6 +8,9 @@ export default defineConfig({
     proxy: {
       // API NestJS
       '/api': 'http://localhost:3001/',
-    },
-  }
+    },  
+  },
+  css: {
+    postcss: './postcss.config.js',
+  },
 })

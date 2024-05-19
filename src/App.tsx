@@ -10,7 +10,8 @@ function App() {
   return (
     <>
       <div>
-      <FuncionariosList/>
+        <Navbar/>
+        <FuncionariosList/>
       </div>
       
     </>
