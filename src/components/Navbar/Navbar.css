@@ -1,0 +1,32 @@
+/* Navbar.css */
+.navbar {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-right: 20px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #333;
+  }
+  
