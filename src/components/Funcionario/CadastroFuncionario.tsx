@@ -10,4 +10,13 @@ const CadastroFuncionario = () => {
       salario: '',
       empresaId: '',
     });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFuncionarioData({
+            ...funcionarioData,
+            [name]: value,
+        });
+  }
+  const h
 }
