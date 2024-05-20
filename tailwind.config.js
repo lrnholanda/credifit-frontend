@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         customColor: '#057D88',
+        verdeClaro: '#32B7B7',
       },
     },
   },
