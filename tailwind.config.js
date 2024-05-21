@@ -7,8 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        customColor: '#057D88',
-        verdeClaro: '#32B7B7',
+        darkgreen: '#057D88',
+        lightgreen: '#32B7B7',
+        lightorange: '#FFE5D5',
+        darkorange: '#E66900'
+
       },
     },
   },

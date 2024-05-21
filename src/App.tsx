@@ -1,24 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import FuncionariosList from './components/Funcionario/FuncionariosList'
-import Navbar from './components/Navbar/Navbar'
-import CadastroFuncionario from './components/Funcionario/CadastroFuncionario'
-import EmpresasList from './components/Empresa/EmpresasList'
+// src/App.tsx
+import React from 'react';
+import AppRoutes from '../src/routes/routes'
+import Navbar from './components/Navbar/Navbar';
 
-function App() {
-
-
+const App = () => {
   return (
-    <>
-      <div>
-        <Navbar/>
-       <CadastroFuncionario/>
-       <EmpresasList/>
-      </div>
-      
-    </>
-  )
-}
+    <div className="App">
+      <Navbar/>
+      <AppRoutes />
+    </div>
+  );
+};
 
-export default App
+export default App;
