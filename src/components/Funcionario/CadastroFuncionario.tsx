@@ -84,11 +84,23 @@ const CadastroFuncionario = () => {
         empresaId: empresaId, // Convertendo para número
       });
 
-      const { id: funcionarioId } = response.data;
+      console.log('Resposta completa da API:', response.data);
+
+      const funcionarioId = response.data.funcionario.id;
+
+      if (funcionarioId === undefined) {
+        console.error('ID do funcionário não encontrado na resposta da API:', response.data);
+        setNotification({ message: 'Erro ao cadastrar funcionário: ID não encontrado na resposta', type: 'error' });
+        return;
+      }
+
+      console.log('ID do funcionário retornado pela API:', funcionarioId);
 
       // Armazena o ID do funcionário no localStorage
-      localStorage.setItem('funcionarioId', funcionarioId);
+      localStorage.setItem('funcionarioId', funcionarioId.toString());
 
+      console.log('ID do funcionário salvo no localStorage:', localStorage.getItem('funcionarioId'));
+      
       setNotification({ message: 'Funcionário cadastrado com sucesso!', type: 'success' });
       setFuncionarioData({
         nomeCompleto: '',
@@ -206,4 +218,3 @@ const CadastroFuncionario = () => {
 };
 
 export default CadastroFuncionario;
-

@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css'; // Importe o arquivo CSS do rc-slider
-import Notification from '../Nofication/Notification';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
-interface Empresa{
-  id: number;
-}
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css'; 
+import Notification from '../Nofication/Notification';
 
 const SimuladorEmprestimo = ()  => {
 const [valorEmprestimo, setValorEmprestimo] =  useState(2000);
@@ -35,6 +31,7 @@ return (
           <h2 className="text-sm font-light text-gray-800 text-center">
             Você possui saldo para Crédito Consignado pela empresa Seguros Seguradora. Faça uma simulação!
           </h2>
+        </div>
         </div>
         <div className="p-6">
           <div className="mb-4">
@@ -67,7 +64,6 @@ return (
           )}
         </div>
     </div>
-  </div>
 );
   
 }
