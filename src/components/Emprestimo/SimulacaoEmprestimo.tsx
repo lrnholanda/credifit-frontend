@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css'; // Importe o arquivo CSS do rc-slider
+import Notification from '../Nofication/Notification';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+interface Empresa{
+  id: number;
+}
 
 const SimuladorEmprestimo = ()  => {
 const [valorEmprestimo, setValorEmprestimo] =  useState(2000);
@@ -29,6 +35,36 @@ return (
           <h2 className="text-sm font-light text-gray-800 text-center">
             Você possui saldo para Crédito Consignado pela empresa Seguros Seguradora. Faça uma simulação!
           </h2>
+        </div>
+        <div className="p-6">
+          <div className="mb-4">
+            <p className="text-sm mb-2">Digite quanto você precisa:</p>
+            <div className="flex items-center justify-between mt-2">
+              <span className="text-gray-600 text-sm">R$ 500</span>
+              <span className="text-gray-600 text-sm">R$ 15.000</span>
+            </div>
+            <Slider
+              min={500}
+              max={15000}
+              step={500}
+              value={valorEmprestimo}
+              onChange={setValorEmprestimo}
+              className="mt-4"
+            />
+            <span className="text-sm text-gray-600">Valor selecionado: R$ {valorEmprestimo}</span>
+          </div>
+          <button
+            onClick={handleSimularEmprestimo}
+            className="w-full bg-darkgreen text-white py-2 rounded-md hover:bg-lightgreen">
+            Simular Empréstimo
+          </button>
+          {notification && (
+            <Notification
+              message={notification.message}
+              type={notification.type}
+              onClose={() => setNotification(null)}
+            />
+          )}
         </div>
     </div>
   </div>
