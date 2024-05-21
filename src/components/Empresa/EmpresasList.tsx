@@ -5,9 +5,8 @@ interface Empresa{
   id: number;
   razaoSocial: string;
   cnpj: string;
-  // Adicione outros campos conforme necessário
 }
-
+// teste verificar se api está funcionado  renderizar lista de empresas 
 const EmpresasList = () => {
   const [empresas, setEmpresas] = useState<Empresa[]>([]);
 
