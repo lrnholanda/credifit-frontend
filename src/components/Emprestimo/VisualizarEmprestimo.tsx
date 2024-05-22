@@ -53,6 +53,12 @@ const VisualizarEmprestimo = () => {
   return (
     <div className="max-w-md mx-auto mt-8">
       <div className="bg-white rounded-md shadow-md overflow-hidden p-4">
+      <div className="bg-lightorange rounded-md p-4 m-4 flex items-center">
+          <img className="h-30 w-30 mr-3" src="src/assets/betina-sorrindo_2x 1.svg" alt="betina" />
+          <h2 className="text-sm font-light text-gray-800 text-center">
+            Parabéns! Seu emprestimo foi confirmado com sucesso 
+          </h2>
+        </div>
         <h1 className="text-sm font-semibold text-darkgreen text-left">Visualização de Empréstimo</h1>
         <div className="p-6">
           <p className="text-sm font-light text-gray-800">Valor do Empréstimo: R$ {valorEmprestimo}</p>

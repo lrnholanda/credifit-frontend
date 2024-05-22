@@ -22,6 +22,7 @@ const CadastroFuncionario = () => {
   const [empresas, setEmpresas] = useState<Empresa[]>([]);
   const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
+  
   useEffect(() => {
     const fetchEmpresas = async () => {
       try {

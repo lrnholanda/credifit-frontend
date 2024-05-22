@@ -10,8 +10,8 @@ export default {
         darkgreen: '#057D88',
         lightgreen: '#32B7B7',
         lightorange: '#FFE5D5',
-        darkorange: '#E66900'
-
+        darkorange: '#E66900',
+        greenstatus:  '#9AF8AB',
       },
     },
   },
