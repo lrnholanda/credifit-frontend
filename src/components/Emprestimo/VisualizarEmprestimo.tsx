@@ -14,7 +14,7 @@ const VisualizarEmprestimo = () => {
   useEffect(() => {
     const valorSalvo = localStorage.getItem('valorEmprestimo');
     const parcelasSalvas = localStorage.getItem('numeroParcelas');
-    const idFuncionarioSalvo = localStorage.getItem('idFuncionario');
+    const idFuncionarioSalvo = localStorage.getItem('funcionarioId');
     if (valorSalvo && parcelasSalvas && idFuncionarioSalvo) {
       setValorEmprestimo(parseFloat(valorSalvo));
       setQuantidadeParcelas(parseInt(parcelasSalvas));
@@ -24,27 +24,26 @@ const VisualizarEmprestimo = () => {
 
   const confirmarEmprestimo = async () => {
     try {
-      // Verifica se todos os dados necessários estão presentes
       if (valorEmprestimo === null || quantidadeParcelas === null || idFuncionario === null) {
         throw new Error('Dados de empréstimo incompletos');
       }
 
-      // Envia os dados para a API
       const response = await axios.post('http://localhost:3001/emprestimos', {
         valor: valorEmprestimo,
         parcelas: quantidadeParcelas,
         funcionarioId: idFuncionario
       });
 
-      // Armazena a resposta da API no estado para exibir os detalhes do empréstimo ao usuário
-      setRespostaAPI(response.data);
+      // Armazenar a resposta da API no localStorage
+      localStorage.setItem('respostaAPI', JSON.stringify(response.data));
 
+      // Limpar localStorage dos dados de empréstimo
       localStorage.removeItem('valorEmprestimo');
       localStorage.removeItem('numeroParcelas');
-      localStorage.removeItem('idFuncionario');
+      localStorage.removeItem('funcionarioId');
 
       setNotification({ message: 'Empréstimo confirmado com sucesso!', type: 'success' });
-      navigate('/proximo-passs');
+      navigate('/resultado-emprestimo');
     } catch (error) {
       console.error('Erro ao confirmar empréstimo:', error);
       setNotification({ message: 'Erro ao confirmar empréstimo', type: 'error' });
@@ -64,13 +63,6 @@ const VisualizarEmprestimo = () => {
           >
             Confirmar Empréstimo
           </button>
-          {respostaAPI && (
-            <div className="mt-4">
-              <h2 className="text-sm font-semibold text-darkgreen">Detalhes do Empréstimo:</h2>
-              <p className="text-sm font-light text-gray-800">Status: {respostaAPI.status}</p>
-              <p className="text-sm font-light text-gray-800">Data: {respostaAPI.data}</p>
-            </div>
-          )}
           {notification && (
             <Notification
               message={notification.message}
